@@ -21,6 +21,7 @@ string semester = "Fall 2021";
 
 void showMenu();
 void menu18Smiley(int);
+void menu15Syed();
 
 // ***************************************************************
 // END OF FUNCTION PROTOTYPE AREA
@@ -82,6 +83,7 @@ int main()
             case 14:                 // Rodriguez - call to function goes here
                 break;
             case 15:                 // Syed - call to function goes here
+                menu15Syed();
                 break;
             case 16:                 // Underwood - call to function goes here
                 break;
@@ -194,4 +196,66 @@ void menu18Smiley(int numberOfTimes)
 
     cout << endl;
     cout << endl;
+}
+
+
+// *****************************************************************************************
+// MENU ID:          15
+// FUNCTION:         menu15Syed
+// DESCRIPTION:      Calculates the sales tax on an item and prints the receipt!
+// OUTPUT EXAMPLE:   User enters 100 and 8
+//                   Output:
+//                      Item Receipt:
+//                      ------------------
+//                      Price     --> 100
+//                      Sales Tax --> 8
+//                      Total Cost -> 108
+// *****************************************************************************************
+void menu15Syed()
+{
+    string userInput;
+    float itemCost;
+    float taxRate;
+
+    // User intro
+    cout << "\n\nHello and welcome to the Tax Calculator!\n";
+    cout << "This program calculates the sales tax for an item and displays the numerical value to the user!\n\n";
+
+    // Retrieve item info from user regarding cost and sales tax rate
+    cout << "Item Cost (Pre-Tax)  -->   ";
+    cin >> itemCost;
+
+    cout << "Sales Tax Rate (Ex. 7.40% should be entered as 7.40)  -->   ";
+    cin >> taxRate;
+    taxRate = taxRate / 100.0;
+
+    // Print the receipt!
+    cout << "\n\nItem Receipt\n";
+    cout << "----------------------\n";
+    cout << "Price      -->  " << itemCost << endl;
+    cout << "Sales Tax  -->  " << (itemCost * taxRate) << "\n\n";
+    cout << "Total Cost -->  " << ( itemCost + (itemCost * taxRate) ) << endl;
+    cout << "----------------------\n";
+
+    // Run the function again??
+    while(true)
+    {
+        cout << "\nWould you like to run the Tax Calculator again? (Y/N) :   ";
+        cin >> userInput;
+
+        if (userInput == "Y" || userInput == "y")
+        {
+            menu15Syed();
+        }
+        else
+        {
+            cout << "\n\n   Thank you for using the Tax Calculator!\n";
+            cout << "   Have a great day!\n\n\n";
+        }
+
+        break;
+    }
+
+    // End of function
+    return;
 }
